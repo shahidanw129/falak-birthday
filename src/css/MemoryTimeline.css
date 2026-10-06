@@ -1,0 +1,804 @@
+/*====================================================
+MEMORY TIMELINE PAGE
+PART 1
+====================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+.memories-section{
+
+    position:relative;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    padding:90px 8%;
+
+    color:#fff;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+
+    background:
+    radial-gradient(circle at 10% 10%, rgba(0,210,255,.22), transparent 30%),
+    radial-gradient(circle at 90% 15%, rgba(130,70,255,.30), transparent 32%),
+    radial-gradient(circle at 50% 90%, rgba(255,190,70,.15), transparent 35%),
+    linear-gradient(135deg,#061326,#101c45,#25124a,#071b32);
+
+}
+
+
+/* BACKGROUND SHAPES */
+
+.memories-background-shape{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(25px);
+
+    pointer-events:none;
+
+    opacity:.35;
+
+    animation:floatingShape 10s ease-in-out infinite;
+
+}
+
+
+.shape-one{
+
+    width:350px;
+    height:350px;
+
+    top:-120px;
+    left:-130px;
+
+    background:#00c6ff;
+
+}
+
+
+.shape-two{
+
+    width:450px;
+    height:450px;
+
+    top:35%;
+    right:-220px;
+
+    background:#7448ff;
+
+    animation-delay:2s;
+
+}
+
+
+.shape-three{
+
+    width:380px;
+    height:380px;
+
+    bottom:-150px;
+    left:25%;
+
+    background:#ffb703;
+
+    animation-delay:4s;
+
+}
+
+
+
+@keyframes floatingShape{
+
+    0%,100%{
+
+        transform:translate(0,0) scale(1);
+
+    }
+
+
+    50%{
+
+        transform:translate(45px,-45px) scale(1.15);
+
+    }
+
+}
+
+
+
+/* HEADING */
+
+.memories-heading{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:950px;
+
+    margin:0 auto 90px;
+
+    text-align:center;
+
+}
+
+
+.memories-tag{
+
+    display:inline-block;
+
+    padding:12px 25px;
+
+    margin-bottom:25px;
+
+    border:1px solid rgba(120,220,255,.35);
+
+    border-radius:50px;
+
+    background:rgba(0,180,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    color:#9be7ff;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+}
+
+
+
+.memories-heading h1{
+
+    font-size:clamp(48px,8vw,90px);
+
+    line-height:1.05;
+
+    color:white;
+
+    text-shadow:
+    0 10px 35px rgba(0,0,0,.45);
+
+}
+
+
+
+.memories-heading h1 span{
+
+    display:block;
+
+    margin-top:8px;
+
+    background:linear-gradient(
+        90deg,
+        #00d9ff,
+        #a78bfa,
+        #ffd166
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+
+.heading-heart{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin:25px 0;
+
+    font-size:25px;
+
+}
+
+
+
+.heading-heart span{
+
+    width:100px;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+        to right,
+        transparent,
+        #00d9ff
+    );
+
+}
+
+
+.heading-heart span:last-child{
+
+    transform:rotate(180deg);
+
+}
+
+
+
+.memories-heading p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#dcecff;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+}
+
+
+
+/* GRID */
+
+
+.memories-grid{
+
+    position:relative;
+
+    z-index:5;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+    max-width:1250px;
+
+    margin:auto;
+
+}
+/*====================================================*
+ MEMORY TIMELINE - PART 2
+ CARDS + RESPONSIVE
+*====================================================*/
+
+
+/*==========================*
+ MEMORY CARDS
+*==========================*/
+
+.memory-card{
+
+    position:relative;
+    padding:40px 35px;
+
+    border-radius:35px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.04)
+    );
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(20px);
+
+    overflow:hidden;
+
+    transition:.5s;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+}
+
+
+.memory-card:hover{
+
+    transform:
+    translateY(-12px);
+
+    border-color:
+    rgba(0,220,255,.5);
+
+    box-shadow:
+    0 35px 80px rgba(0,200,255,.25);
+
+}
+
+
+/* NUMBER */
+
+.memory-number{
+
+    position:absolute;
+
+    top:15px;
+    right:25px;
+
+    font-size:70px;
+
+    font-weight:900;
+
+    color:
+    rgba(255,255,255,.08);
+
+}
+
+
+
+/* ICON */
+
+
+.memory-icon{
+
+    width:90px;
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:28px;
+
+    font-size:45px;
+
+    margin-bottom:25px;
+
+
+    background:
+    linear-gradient(
+        135deg,
+        #00c6ff,
+        #7955ff
+    );
+
+
+    box-shadow:
+
+    0 15px 35px
+    rgba(0,200,255,.35);
+
+}
+
+
+
+/* SMALL TITLE */
+
+
+.memory-small-title{
+
+    color:#72e7ff;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    font-weight:bold;
+
+}
+
+
+
+/* TITLE */
+
+
+.memory-card h2{
+
+    margin:15px 0;
+
+    font-size:35px;
+
+    color:white;
+
+}
+
+
+
+/* LINE */
+
+
+.memory-line{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:20px 0;
+
+    color:#ffd166;
+
+}
+
+
+.memory-line span{
+
+    height:2px;
+
+    flex:1;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #00d9ff
+    );
+
+}
+
+
+
+/* DESCRIPTION */
+
+
+.memory-description{
+
+    color:#dcecff;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+}
+
+
+
+/* SHAYARI */
+
+
+.memory-shayari{
+
+    margin-top:30px;
+
+    padding:22px;
+
+    border-radius:20px;
+
+
+    background:
+    rgba(255,255,255,.07);
+
+
+    border-left:
+
+    4px solid #ffd166;
+
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+
+.memory-shayari span{
+
+    font-size:25px;
+
+}
+
+
+.memory-shayari p{
+
+    margin:0;
+
+    color:#fff;
+
+    font-style:italic;
+
+    line-height:1.7;
+
+}
+
+
+
+/* SPECIAL BOX */
+
+
+.memory-special{
+
+    margin-top:25px;
+
+    padding:22px;
+
+
+    border-radius:20px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,45,117,.18),
+        rgba(123,47,247,.18)
+    );
+
+
+    border:
+
+    1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.memory-special b{
+
+    color:#ffd166;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+}
+
+
+
+.memory-special p{
+
+    margin-top:12px;
+
+    color:#edf5ff;
+
+    line-height:1.7;
+
+}
+
+
+
+/* FOOTER INSIDE CARD */
+
+
+.memory-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:
+
+    1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+.memory-footer span{
+
+    color:#9be7ff;
+
+    font-size:13px;
+
+}
+
+
+.memory-footer b{
+
+    color:#ff4d88;
+
+    font-size:25px;
+
+}
+
+
+
+/* FLOATING HEART */
+
+
+.memory-heart{
+
+    position:absolute;
+
+    bottom:20px;
+
+    right:25px;
+
+    font-size:30px;
+
+    opacity:.4;
+
+    animation:
+    heartFloat 3s infinite ease-in-out;
+
+}
+
+
+
+@keyframes heartFloat{
+
+
+0%,100%{
+
+    transform:
+    translateY(0);
+
+}
+
+
+50%{
+
+    transform:
+    translateY(-12px);
+
+}
+
+
+}
+
+
+
+/*====================================================*
+ LARGE SCREEN
+*====================================================*/
+
+
+@media(min-width:1200px){
+
+
+.memory-card{
+
+    min-height:650px;
+
+}
+
+
+}
+
+
+
+
+
+/*====================================================*
+ TABLET
+*====================================================*/
+
+
+@media(max-width:950px){
+
+
+.memory-card{
+
+    padding:35px 28px;
+
+}
+
+
+
+.memory-card h2{
+
+    font-size:30px;
+
+}
+
+
+.memory-number{
+
+    font-size:60px;
+
+}
+
+
+}
+
+
+
+
+
+/*====================================================*
+ MOBILE
+*====================================================*/
+
+
+@media(max-width:600px){
+
+
+.memory-card{
+
+    padding:25px 18px;
+
+}
+
+
+.memory-number{
+
+    font-size:50px;
+
+    top:10px;
+
+    right:15px;
+
+}
+
+
+.memory-icon{
+
+    width:70px;
+
+    height:70px;
+
+    font-size:35px;
+
+    border-radius:22px;
+
+}
+
+
+
+.memory-card h2{
+
+    font-size:24px;
+
+}
+
+
+.memory-description{
+
+    font-size:14px;
+
+}
+
+
+.memory-line{
+
+    margin:15px 0;
+
+}
+
+
+
+.memory-shayari{
+
+    padding:15px;
+
+}
+
+
+
+.memory-special{
+
+    padding:15px;
+
+}
+
+
+.memory-footer{
+
+    flex-direction:column;
+
+    gap:10px;
+
+    text-align:center;
+
+}
+
+
+
+}

@@ -1,0 +1,184 @@
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    padding: 25px 20px;
+    background: linear-gradient(180deg,#ff2d75,#7b2ff7,#1a1a40);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    box-shadow: 10px 0 35px rgba(0,0,0,.35);
+    transition: .35s ease;
+    z-index: 9999;
+}
+
+/* Scroll */
+
+.sidebar::-webkit-scrollbar{
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+    background:white;
+    border-radius:20px;
+}
+
+/* Logo */
+
+.logo{
+    text-align:center;
+}
+
+.sidebar-photo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    box-shadow:
+    0 0 20px white,
+    0 0 40px hotpink;
+}
+
+.logo h2{
+    color:white;
+    margin-top:18px;
+    font-size:28px;
+}
+
+.logo span{
+    color:#ffe3ef;
+    font-size:15px;
+}
+
+/* Menu */
+
+.menu{
+    margin-top:35px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    color:white;
+    text-decoration:none;
+    padding:15px 18px;
+    border-radius:15px;
+    transition:.3s;
+    font-size:17px;
+    font-weight:600;
+}
+
+.item svg{
+    font-size:20px;
+}
+
+.item:hover{
+    background:rgba(255,255,255,.18);
+    transform:translateX(6px);
+}
+
+.item.active{
+    background:white;
+    color:#ff2d75;
+}
+
+/* Logout */
+
+.bottom{
+    margin-top:25px;
+}
+
+.bottom button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:15px;
+    background:white;
+    color:#ff2d75;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+}
+
+.bottom button:hover{
+    background:#ffe2ef;
+}
+
+/* Close button */
+
+.close-menu{
+    display:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+.sidebar{
+
+    left:-300px;
+    width:280px;
+
+}
+
+.sidebar.active{
+
+    left:0;
+
+}
+
+.close-menu{
+
+    display:block;
+    position:absolute;
+    top:15px;
+    right:15px;
+    background:none;
+    border:none;
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+
+}
+
+.logo h2{
+
+    font-size:24px;
+
+}
+
+.sidebar-photo{
+
+    width:100px;
+    height:100px;
+
+}
+
+.item{
+
+    font-size:16px;
+
+}
+
+}/* FINAL SIDEBAR PHOTO SIZE */
+.sidebar-photo{width:140px!important;height:140px!important;border-radius:50%;object-fit:cover;object-position:center;border:5px solid #fff;box-shadow:0 0 25px rgba(255,80,170,.75)}
+@media(max-width:768px){.sidebar-photo{width:125px!important;height:125px!important}}

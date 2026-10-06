@@ -1,0 +1,10 @@
+.site-layout{min-height:100vh;background:#081326;overflow-x:hidden;color:#fff}
+.site-main{margin-left:280px;min-height:100vh;padding:18px 22px 40px}
+.site-main>.navbar{position:sticky;top:12px;z-index:9000;margin:0 0 18px;border:1px solid rgba(255,255,255,.12);box-shadow:0 15px 40px rgba(0,0,0,.25)}
+.site-content{min-width:0}
+.sidebar-overlay{display:none}
+@media(max-width:768px){
+ .site-main{margin-left:0;padding:10px 10px 35px}
+ .site-main>.navbar{top:8px;margin-bottom:12px}
+ .sidebar-overlay{display:block;position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:9998}
+}
